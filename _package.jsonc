@@ -1,0 +1,19 @@
+{  // package.jsonの内容にコメントを追加したもの
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.58",
+    "typescript": "^4.9.5"
+  },
+  "scripts": { // 実行する時はnpm run [command]
+    "lintfix": "eslint --cache --fix src/ && prettier --write src/", // linterで修正
+    "compile": "cp appsscript.json dist/appsscript.json && tsc", // 必要なappscriptをpushするdistにコピー
+    "push": "yarn lintfix && yarn compile && clasp push -f" // フォーマットとコンパイルをした上でDrive上に配置
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "prettier": "^2.8.4"
+  }
+}
+  
